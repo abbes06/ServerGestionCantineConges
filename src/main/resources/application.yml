@@ -1,0 +1,26 @@
+server:
+  port: 8989
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+
+  datasource:
+    password: admin
+    testWhileIdle: true
+    url: jdbc:mysql://localhost:3306/canteen?useSSL=false&allowPublicKeyRetrieval=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    validationQuery: SELECT 1
+    initialization-mode: always
+    continue-on-error: true
+
+# App Properties
+#app:
+#  jwtSecret: jwtGrokonezSecretKey
+#  jwtExpiration: 86400
+
