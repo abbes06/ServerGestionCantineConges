@@ -1,6 +1,6 @@
 package canteen.manager.security;
 
-import canteen.manager.exception.SpringBlogException;
+import canteen.manager.exception.Exception;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.core.Authentication;
@@ -25,7 +25,7 @@ public class JwtProvider {
             InputStream resourceAsStream = getClass().getResourceAsStream("/springblog.jks");
             keyStore.load(resourceAsStream, "secret".toCharArray());
         } catch (KeyStoreException | CertificateException | NoSuchAlgorithmException | IOException e) {
-            throw new SpringBlogException("Exception occured while loading keystore");
+            throw new Exception("Exception occured while loading keystore");
         }
 
     }
@@ -42,7 +42,7 @@ public class JwtProvider {
         try {
             return (PrivateKey) keyStore.getKey("springblog", "secret".toCharArray());
         } catch (KeyStoreException | NoSuchAlgorithmException | UnrecoverableKeyException e) {
-            throw new SpringBlogException("Exception occured while retrieving public key from keystore");
+            throw new Exception("Exception occured while retrieving public key from keystore");
         }
     }
 
@@ -55,7 +55,7 @@ public class JwtProvider {
         try {
             return keyStore.getCertificate("springblog").getPublicKey();
         } catch (KeyStoreException e) {
-            throw new SpringBlogException("Exception occured while retrieving public key from keystore");
+            throw new Exception("Exception occured while retrieving public key from keystore");
         }
     }
 

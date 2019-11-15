@@ -1,4 +1,4 @@
-package canteen.manager.service;
+package canteen.manager.service.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package canteen.manager.service;
+package canteen.manager.service.auth;
 
 import canteen.manager.model.User;
 import canteen.manager.repository.UserRepository;
